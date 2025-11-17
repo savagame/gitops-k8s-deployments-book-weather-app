@@ -4,6 +4,8 @@ on:
     branches:
       - "main"
       - "release"
+permissions:
+  contents: write
 jobs:
   push_to_registry:
     name: Push Docker image to Docker hub
@@ -41,4 +43,4 @@ jobs:
           git config user.email "goodhabitsamsam@gmail.com"
           git add deployment/deployment.yaml
           git commit -m "Update deployment image to ${{ env.IMAGE_TAG }}" || echo "No changes to commit"
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:main
