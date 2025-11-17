@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: zurich-weather-app
-          image: savagame/gitops-k8s-deployments:latest
+          image: savagame/gitops-k8s-deployments:202511170813-de9c845c
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
